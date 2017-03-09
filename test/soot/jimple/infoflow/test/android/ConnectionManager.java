@@ -31,5 +31,10 @@ public class ConnectionManager {
 		System.out.println(dbl + "");
 		//publish on internet...
 	}
+
+	public void publish(File f) {
+		System.out.println("FILE");
+		//..  added for leak test
+	}
 	
 }

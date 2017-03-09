@@ -162,7 +162,6 @@ public abstract class AbstractInfoflow implements IInfoflow {
 	 * @param libPath The Soot classpath containing the libraries
 	 * @param classes The set of classes that shall be checked for data flow
 	 * analysis seeds. All sources in these classes are used as seeds.
-	 * @param sourcesSinks The manager object for identifying sources and sinks
 	 */
 	protected void initializeSoot(String appPath, String libPath, Collection<String> classes) {
 		initializeSoot(appPath, libPath, classes,  "");
