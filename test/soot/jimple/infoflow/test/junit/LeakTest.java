@@ -35,6 +35,32 @@ public class LeakTest extends JUnitTests {
                     "ConnectionManager: void publish(soot.jimple.infoflow.test.android.File)>";
 
 
+    /**
+     * The originial Infoflow
+     *     input: 1. a set of entry point for analsysis
+     *            2. a set of taint source
+     *
+     *     it check if source and reach sink
+     *
+     *
+     *  now, when we do leak test.
+     *     input: 1. doesn't change
+     *            2. we don't have a set of taint source now.
+     *
+     *      it check if the resource is in valid state when the object is unreachable
+     *
+     *
+     *
+     *    when dataflow runs into a 'new File()' statement, it should ...
+     *    if { c },  then   { o }
+     *    if { o },  then { o }, ( maybe { twice_o } later
+     *    if { o , c }, ???  then
+     *    if { next_state(o), next_state(c) }
+     *
+     *
+     *
+     *
+     */
     @Test
     public void TestLeak() {
 
