@@ -1,6 +1,5 @@
-package soot.jimple.infoflow.test;
+package soot.jimple.infoflow.test.resource;
 
-import soot.jimple.infoflow.test.android.ConnectionManager;
 import soot.jimple.infoflow.test.android.File;
 
 /**
@@ -13,7 +12,7 @@ import soot.jimple.infoflow.test.android.File;
  *
  *  ( The most important design decision might be here...
  */
-public class LeakTestCode {
+public class ResourceTestCode {
 
     // some uncertain fact
     private boolean condition;
@@ -32,7 +31,7 @@ public class LeakTestCode {
      *
      *   example1:
      */
-    public void LeakTest1() {
+    public void ResourceTest1() {
 
         // ( F, { c } )
         File f = new File();
@@ -47,7 +46,7 @@ public class LeakTestCode {
      *  example2,  branch
      *
       */
-    public void LeakTest2() {
+    public void ResourceTest2() {
         // ( F, { c } )
         File f = new File();
         // ( F, { o } )
@@ -62,7 +61,7 @@ public class LeakTestCode {
     // false positive is more undesirable.
 
 
-    public void LeakTest3() {
+    public void ResourceTest3() {
         // ( F, { c } )
         File f = new File();
         // ( F, { o } )
