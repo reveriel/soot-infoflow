@@ -336,12 +336,12 @@ public class Infoflow extends AbstractInfoflow {
 
 		// Report on the sources and sinks we have found
 		if (!forwardProblem.hasInitialSeeds()) {
-			logger.error("No sources found, aborting analysis");
-			return;
+			logger.info("No sources found, aborting analysis");
+			logger.info("But doing resource analysis doesn't need sources, continue");
 		}
 		if (sinkCount == 0) {
-			logger.error("No sinks found, aborting analysis");
-			return;
+			logger.info("No sinks found, aborting analysis");
+			logger.info("I mean, it doesn't matter (｡≖‿≖ฺ)");
 		}
 		logger.info("Source lookup done, found {} sources and {} sinks.", forwardProblem.getInitialSeeds().size(),
 				sinkCount);

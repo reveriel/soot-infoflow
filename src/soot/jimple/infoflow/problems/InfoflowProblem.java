@@ -352,7 +352,7 @@ public class InfoflowProblem extends AbstractInfoflowProblem {
 					return KillAll.v();
 				
 				return new NotifyingNormalFlowFunction((Stmt) src) {
-					
+
 					@Override
 					public Set<Abstraction> computeTargetsInternal(Abstraction d1, Abstraction source) {
 						// Check whether we must activate a taint

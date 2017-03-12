@@ -2,6 +2,8 @@ package soot.jimple.infoflow.problems.rules;
 
 import java.util.Collection;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import soot.SootMethod;
 import soot.Value;
 import soot.jimple.AssignStmt;
@@ -26,6 +28,7 @@ import soot.jimple.infoflow.util.ByReferenceBoolean;
  * @author Steven Arzt
  */
 public class SinkPropagationRule extends AbstractTaintPropagationRule {
+	private final Logger logger = LoggerFactory.getLogger(getClass());
 	
 	private boolean killState = false;
 
@@ -58,6 +61,7 @@ public class SinkPropagationRule extends AbstractTaintPropagationRule {
 		else if (stmt instanceof AssignStmt) {
 			final AssignStmt assignStmt = (AssignStmt) stmt;
 			checkForSink(d1, source, stmt, assignStmt.getRightOp());
+			logger.info("found an AssignStmt");
 		}
 		
 		return null;

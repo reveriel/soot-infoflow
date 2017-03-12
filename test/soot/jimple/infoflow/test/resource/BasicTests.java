@@ -43,6 +43,8 @@ public class BasicTests extends ResourceTests {
      *
      *
      */
+
+
     @Test
     public void TestResource() {
 
@@ -52,6 +54,8 @@ public class BasicTests extends ResourceTests {
         epoints.add("<soot.jimple.infoflow.test.resource.ResourceTestCode: void ResourceTest1()>");
         sources.clear();
         sinks.clear();
+
+        sources.add("<soot.jimple.infoflow.test.android.File: void <init>()>");
         infoflow.computeInfoflow(appPath, libPath, epoints, sources, sinks);
         checkInfoflowResource(infoflow, 1);
     }
