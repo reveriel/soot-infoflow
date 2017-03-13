@@ -40,6 +40,8 @@ public class PropagationRuleManager {
 		ruleList.add(new SourcePropagationRule(manager, aliasing, zeroValue, results));
 		ruleList.add(new SinkPropagationRule(manager, aliasing, zeroValue, results));
 		ruleList.add(new ArrayPropagationRule(manager, aliasing, zeroValue, results));
+
+		ruleList.add(new ResourceStateRule(manager, aliasing, zeroValue, results));
 		
 		if (manager.getConfig().getEnableExceptionTracking())
 			ruleList.add(new ExceptionPropagationRule(manager, aliasing, zeroValue, results));
