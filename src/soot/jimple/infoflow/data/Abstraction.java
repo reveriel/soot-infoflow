@@ -28,6 +28,7 @@ import soot.jimple.Stmt;
 import soot.jimple.infoflow.InfoflowConfiguration;
 import soot.jimple.infoflow.collect.AtomicBitSet;
 import soot.jimple.infoflow.data.AccessPath.ArrayTaintType;
+import soot.jimple.infoflow.data.state.ResourceState;
 import soot.jimple.infoflow.solver.cfg.IInfoflowCFG.UnitContainer;
 import soot.jimple.infoflow.solver.fastSolver.FastSolverLinkedNode;
 import soot.jimple.internal.JimpleLocal;
@@ -54,7 +55,7 @@ public class Abstraction implements Cloneable, FastSolverLinkedNode<Abstraction,
 	private Stmt correspondingCallSite = null;
 	
 	private SourceContext sourceContext = null;
-	
+
 	/**
 	 * Unit/Stmt which activates the taint when the abstraction passes it
 	 */
@@ -79,7 +80,12 @@ public class Abstraction implements Cloneable, FastSolverLinkedNode<Abstraction,
 	private boolean dependsOnCutAP = false;
 	
 	private AtomicBitSet pathFlags = null;
-	
+
+	/**
+	 * the state of the taint source
+	 */
+	private ResourceState resourceState = null;
+
 	public Abstraction(AccessPath sourceVal,
 			Stmt sourceStmt,
 			Object userData,
@@ -98,7 +104,7 @@ public class Abstraction implements Cloneable, FastSolverLinkedNode<Abstraction,
 		this.accessPath = apToTaint;
 		this.activationUnit = null;
 		this.exceptionThrown = exceptionThrown;
-		
+
 		this.neighbors = null;
 		this.isImplicit = isImplicit;
 		this.currentStmt = sourceContext == null ? null : sourceContext.getStmt();
@@ -258,7 +264,9 @@ public class Abstraction implements Cloneable, FastSolverLinkedNode<Abstraction,
 	
 	@Override
 	public String toString(){
-		return (isAbstractionActive()?"":"_")+accessPath.toString() + " | "+(activationUnit==null?"":activationUnit.toString()) + ">>";
+		return (isAbstractionActive()?"":"_")+accessPath.toString() +
+				(resourceState == null ? "" : resourceState.toString())
+				+ " | "+(activationUnit==null?"":activationUnit.toString()) + ">>";
 	}
 	
 	public AccessPath getAccessPath(){
@@ -595,5 +603,12 @@ public class Abstraction implements Cloneable, FastSolverLinkedNode<Abstraction,
 	@Override
 	public void setCallingContext(Abstraction callingContext) {
 	}
-		
+
+	public ResourceState getResourceState() {
+		return resourceState;
+	}
+
+	public void setResourceState(ResourceState resourceState) {
+		this.resourceState = resourceState;
+	}
 }

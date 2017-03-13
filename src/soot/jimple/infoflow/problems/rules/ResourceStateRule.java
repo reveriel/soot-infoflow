@@ -2,16 +2,21 @@ package soot.jimple.infoflow.problems.rules;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import soot.JastAddJ.Access;
 import soot.SootMethod;
 import soot.jimple.Stmt;
 import soot.jimple.infoflow.InfoflowManager;
 import soot.jimple.infoflow.aliasing.Aliasing;
 import soot.jimple.infoflow.data.Abstraction;
+import soot.jimple.infoflow.data.AccessPath;
 import soot.jimple.infoflow.problems.TaintPropagationResults;
+import soot.jimple.infoflow.source.SourceInfo;
 import soot.jimple.infoflow.util.ByReferenceBoolean;
 import sun.rmi.runtime.Log;
 
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by guoxing on 12/3/2017.
@@ -45,7 +50,8 @@ public class ResourceStateRule extends AbstractTaintPropagationRule {
                                                        Stmt destStmt,
                                                        ByReferenceBoolean killSource,
                                                        ByReferenceBoolean killAll) {
-        logger.info(d1.toString());
+
+
         return null;
     }
 
