@@ -76,6 +76,28 @@ public class ResourceTestCode {
     }
     // no bug report
 
+
+    private class F {
+        File f;
+    }
+    /**
+     * test access path
+     */
+    public void ResourceTest4() {
+        File f = new File();
+
+        F a = new F();
+        a.f = f;
+    }
+
+
+    public void ResourceTest5() {
+        File f1 = new File();
+        File f2 = new File();
+        f1.close();
+        f2.close();
+    }
+
 }
 
 

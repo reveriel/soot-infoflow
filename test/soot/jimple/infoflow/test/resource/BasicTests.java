@@ -46,12 +46,68 @@ public class BasicTests extends ResourceTests {
 
 
     @Test
-    public void TestResource() {
+    public void TestResource1() {
 
         IInfoflow infoflow = initInfoflow();
 
         List<String> epoints = new ArrayList<>();
         epoints.add("<soot.jimple.infoflow.test.resource.ResourceTestCode: void ResourceTest1()>");
+        sources.clear();
+        sinks.clear();
+
+        sources.add("<soot.jimple.infoflow.test.android.File: void <init>()>");
+        infoflow.computeInfoflow(appPath, libPath, epoints, sources, sinks);
+        checkInfoflowResource(infoflow, 1);
+    }
+
+    @Test
+    public void TestResource2() {
+        IInfoflow infoflow = initInfoflow();
+
+        List<String> epoints = new ArrayList<>();
+        epoints.add("<soot.jimple.infoflow.test.resource.ResourceTestCode: void ResourceTest2()>");
+        sources.clear();
+        sinks.clear();
+
+        sources.add("<soot.jimple.infoflow.test.android.File: void <init>()>");
+        infoflow.computeInfoflow(appPath, libPath, epoints, sources, sinks);
+        checkInfoflowResource(infoflow, 1);
+    }
+
+    @Test
+    public void TestResource3() {
+        IInfoflow infoflow = initInfoflow();
+
+        List<String> epoints = new ArrayList<>();
+        epoints.add("<soot.jimple.infoflow.test.resource.ResourceTestCode: void ResourceTest3()>");
+        sources.clear();
+        sinks.clear();
+
+        sources.add("<soot.jimple.infoflow.test.android.File: void <init>()>");
+        infoflow.computeInfoflow(appPath, libPath, epoints, sources, sinks);
+        checkInfoflowResource(infoflow, 1);
+    }
+
+    @Test
+    public void TestResource4() {
+        IInfoflow infoflow = initInfoflow();
+
+        List<String> epoints = new ArrayList<>();
+        epoints.add("<soot.jimple.infoflow.test.resource.ResourceTestCode: void ResourceTest4()>");
+        sources.clear();
+        sinks.clear();
+
+        sources.add("<soot.jimple.infoflow.test.android.File: void <init>()>");
+        infoflow.computeInfoflow(appPath, libPath, epoints, sources, sinks);
+        checkInfoflowResource(infoflow, 1);
+    }
+
+    @Test
+    public void TestResource5() {
+        IInfoflow infoflow = initInfoflow();
+
+        List<String> epoints = new ArrayList<>();
+        epoints.add("<soot.jimple.infoflow.test.resource.ResourceTestCode: void ResourceTest5()>");
         sources.clear();
         sinks.clear();
 
